@@ -1,0 +1,32 @@
+//Implement min stack
+
+class Stack{
+  constructor(){
+    this.arr = [];
+    this.min = [];
+  }
+  
+  push(num){
+    this.arr.push(num);
+    if(this.min.length==0 || num<this.min){
+      this.min =[num];
+    }
+    console.log("stack after pushing " + num + " is " + this.arr)
+  }
+  pop(){
+    this.arr.length = this.arr.length-1;
+    console.log("stack after poping is ", this.arr);
+  }
+  top(){
+    console.log("top of stack is ", this.arr[this.arrarr.length-1])
+  }
+  minimum(){
+    console.log("min of stack is ", this.min)
+  }
+}
+
+const stacks = new Stack();
+stacks.push(5);
+stacks.push(4);
+stacks.push(1);
+stacks.minimum()
