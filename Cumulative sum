@@ -1,0 +1,12 @@
+//Cumulative Sum
+
+var arr = [1,2,3,4,5,6];
+var result = [arr[0]];
+console.log(result)
+var temp = arr[0]
+for(var i=1; i<arr.length; i++){
+  temp = temp+arr[i];
+  result.push(temp)
+}
+
+console.log(result);
