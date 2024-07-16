@@ -1,0 +1,13 @@
+//identical twins
+
+var arr = [1, 2, 3, 2, 1, 3];
+var twins = {};
+var flag = 0;
+for(var i=0; i<arr.length; i++) {
+  if(twins[arr[i]]==true) {
+    flag++;
+  }
+  twins[arr[i]]=true;
+}
+
+console.log(flag)
