@@ -1,0 +1,13 @@
+//positive Cumulative Sum
+
+var arr = [1, -1, -1, -1, 1, 6, 8 ];
+var result = [];
+var temp= 0;
+for(var i=0; i<arr.length; i++){
+temp = temp + arr[i];
+if(temp>0){
+  result.push(temp)
+}
+}
+
+console.log(result);
