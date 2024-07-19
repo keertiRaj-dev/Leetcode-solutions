@@ -1,0 +1,21 @@
+//Merge two sorted arrays
+var arr1= [1, 2, 3, 4, 4];
+var arr2= [2, 4, 5, 5];
+
+function merge(arr1, arr2){
+    var result = [];
+  while(arr1.length && arr2.length)
+    if(arr1[0]>arr2[0]){
+        result.push(arr2[0]);
+        arr2.shift()
+    }
+    else{
+         result.push(arr1[0]);
+        arr1.shift()
+    }
+    
+    
+    return [...result, ...arr1, ...arr2]
+}
+
+console.log(merge(arr1, arr2))
