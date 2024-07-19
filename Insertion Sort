@@ -1,0 +1,18 @@
+//Insertion Sort
+
+var arr = [5,-6,2,1,10,3,-2];
+
+function insertionSort(arr){
+    for(var i=1; i<arr.length; i++){
+        var numberToInsert = arr[i];
+        var j=i-1;
+    while(numberToInsert<=arr[j] && j>=0){
+        arr[j+1]=arr[j];
+        j--;
+    }
+            arr[j+1]=numberToInsert;
+    }
+    console.log(arr);
+}
+
+insertionSort(arr);
