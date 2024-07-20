@@ -1,0 +1,43 @@
+//Search Range
+
+var arr = [1, 1, 1, 1, 1, 1, 1, 1];
+var n = 1;
+
+function search(arr, n){
+var left=0;
+var right=arr.length-1;
+var result =[];
+
+
+while(left<=right){
+    var mid=Math.floor((left+right)/2);
+    if(n==arr[mid]){
+        var l=mid;
+        var r=mid;
+        var i=mid-1;
+        var j=mid+1;
+      while(arr[i]==n || arr[j]==n){
+          if(arr[i]==n){
+              l=i;
+              i--;
+          }
+          if(arr[j]==n){
+              r=j;
+              j++;
+          }
+      }
+      result.push(l);
+      result.push(r);
+      break;
+    }
+    else if(n>arr[mid]){
+        left=mid+1;
+    }
+    else{
+        right=mid-1;
+    }
+}
+return result;
+}
+
+console.log(search(arr,n))
