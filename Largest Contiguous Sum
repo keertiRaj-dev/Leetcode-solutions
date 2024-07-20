@@ -1,0 +1,13 @@
+//Largest contiguous sum
+
+var arr =  [-2,1,2,3,6,-8,4,5,-9];
+
+var currentMax = arr[0];
+var totalMax = arr[0];
+
+for (var i=1; i<arr.length; i++){
+currentMax = arr[i]>currentMax+arr[i] ? arr[i] : currentMax+arr[i];
+totalMax = currentMax>totalMax ? currentMax : totalMax;
+}
+
+console.log(totalMax);
