@@ -1,0 +1,28 @@
+//negative numbers in sorted array
+
+var arr= [-5, -3, -2, 3, 4, 6, 7, 8];
+
+function negative(arr){
+    var left =0;
+    var right = arr.length-1;
+       if(arr[right]<0){
+        return arr.length;
+    }
+    if(arr[left]>0){
+        return 0;
+    }
+    while(left<=right){
+        var mid = Math.floor((left+right)/2)
+        if(arr[mid]>=0){
+            right=mid-1;
+        }
+        else{
+         left =mid+1;
+        }
+
+    }
+    
+    return left;
+}
+
+console.log(negative(arr))
