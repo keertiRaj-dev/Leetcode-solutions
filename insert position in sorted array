@@ -1,0 +1,24 @@
+var arr= [1, 2, 4, 5,7,9]
+var num= 3;
+
+function insert(arr, n){
+    var left=0;
+    var right=arr.length-1;
+    
+    while(left<=right){
+    var mid=Math.floor((left+right)/2);
+    if(num==arr[mid]){
+        return mid;
+    }
+  
+    if(num>arr[mid]){
+        left=mid+1
+    }
+    if(num<arr[mid]){
+        right=mid-1;
+    }
+    }
+    
+    return left;
+}
+console.log(insert(arr,num))
