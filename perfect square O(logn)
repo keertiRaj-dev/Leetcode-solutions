@@ -1,0 +1,29 @@
+var n1 = 25;
+var n2 = 30;
+
+function square(n){
+if(n<1){
+    return "no";
+}
+var left = 1;
+var right = n;
+
+var guessed;
+while(left<=right){
+    var mid = Math.floor((left+right)/2)
+    guessed = mid*mid;
+    if(n==guessed){
+        return "yes"
+    }
+    if(guessed<n){
+        left=mid+1;
+    }
+    else{
+        right=mid-1
+    }
+}
+return "no"
+}
+
+console.log(square(n1));
+console.log(square(n2));
