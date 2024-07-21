@@ -1,0 +1,30 @@
+//Complexity O(n)
+
+what's the time complexity of this code
+
+var n1 = 25;
+var n2 = 30;
+
+function square(n){
+    var flag=0;
+    var i=0;
+    while(i<=n){
+    
+   if(n%i==0 && i*i==n){
+                flag++;
+              
+        }
+          i++;
+    }
+    
+    if(flag==0){
+        return "no"
+    }
+    else{
+        return "yes"
+    }
+    
+}
+
+console.log(square(n1));
+console.log(square(n2));
