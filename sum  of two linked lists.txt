@@ -1,0 +1,91 @@
+//sum  of two linked list
+class Node{
+    constructor(data){
+        this.value = data;
+        this.next = null;
+    }
+}
+
+class linkedList{
+    constructor(){
+        this.head = null;
+    }
+    
+    form(num){
+        var node = new Node(num%10);
+        this.head = node;
+        num = Math.floor(num/10);
+        var n;
+        while(num!=0){
+            n= num%10;
+            num = Math.floor(num/10);
+            var newNode = new Node(n);
+            node.next = newNode;  
+            node = node.next;
+        }
+        node.next = null;
+    }
+    print(){
+          var current = this.head;
+        var list = "";
+        while(current!=null){
+            list += current.value + "->";
+            current = current.next;
+        }
+        console.log(list + "null")
+    }
+      fromHead(head) {
+        this.head = head;
+        return this;
+    }
+    static sum(list1, list2){
+        var head = new Node((list1.head.value+list2.head.value)%10)
+        var current = head;
+        var p1 = list1.head.next;
+        var p2 = list2.head.next;
+        var carry = Math.floor((list1.head.value+list2.head.value)/10);
+        console.log(carry)
+        while(p1!=null || p2!=null){
+            if(p1!=null && p2!=null){
+            var n = (p1.value+p2.value+carry)%10;
+       
+            var node = new Node(n);
+            current.next = node;
+            current = node;
+            carry = Math.floor((p1.value+p2.value+carry)/10);
+            p1 = p1.next;
+            p2=p2.next;
+            }
+            if(p1==null && p2!=null){
+             
+              var n = (p2.value+carry)%10;
+            var node = new Node(n);
+            current.next = node;
+            current = node;
+            carry = Math.floor((p2.value+carry)/10);
+            p2=p2.next
+            }
+             if(p1!=null && p2==null){
+              var n = (p1.value+carry)%10;
+            var node = new Node(n);
+            current.next = node;
+            current = node;
+            carry = Math.floor((p1.value+carry)/10);
+            p1=p1.next
+            }
+           
+        }
+         return new linkedList().fromHead(head);
+    }
+}
+
+
+var list1 = new linkedList();
+var list2 = new linkedList()
+list1.form(345);
+list1.print();
+list2.form(335); //801  : 1->0->8
+list2.print();
+var result = linkedList.sum(list1, list2);
+console.log("Sum List:");
+result.print();
