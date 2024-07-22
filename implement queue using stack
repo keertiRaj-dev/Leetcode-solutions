@@ -1,0 +1,83 @@
+//implement queue from stacks
+//stack has: size, isEmpty, top, push, pop
+//queue should have: size front() back() push, pop()
+
+class Stack{
+    constructor(){
+        this.items=[]
+    }
+    size(){
+      return this.items.length;
+    }
+    isEmpty(){
+        if(this.items.length==0)
+       return true;
+        else
+        return false
+    }
+    top(){
+         return this.items[this.items.length-1];
+       
+    }
+    push(num){
+        this.items.push(num);
+    }
+    pop(){
+        this.items.length = this.items.length-1;
+    }
+}
+
+class Queue{
+    constructor(){
+        this.stack1 = new Stack()
+        this.stack2 = new Stack()
+        
+    }
+    transfer(){
+        if(this.stack2.size()==0){
+        while(this.stack1.size()!=0){
+            this.stack2.push(this.stack1.top());
+            this.stack1.pop();
+            
+        }
+        return;
+        }
+          if(this.stack1.size()==0){
+        while(this.stack2.size()!=0){
+            this.stack1.push(this.stack2.top());
+            this.stack2.pop();
+        }
+        return;
+        }
+    }
+    push(num){
+        this.stack1.push(num);
+        console.log("new queue after push is ", this.stack1)
+    }
+    front(){
+        this.transfer();
+        console.log("front if the queue is", this.stack2.top());
+        this.transfer();
+        
+    }
+    back(){
+        console.log("back of the queue is", this.stack1.top())
+    }
+     size(){
+         console.log("size of the queue is", this.stack1.size())
+     }
+     pop(){
+         this.stack1.pop();
+         console.log("new queue after pop is ", this.stack1)
+     }
+     
+}
+
+var queue1 = new Queue()
+queue1.push(1);
+queue1.push(2);
+queue1.push(3);
+queue1.front();
+queue1.back();
+queue1.size();
+queue1.pop()
