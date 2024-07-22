@@ -1,15 +1,46 @@
+/* You are given an array of integers A and a number k which represents the size of the window. The window covers k elements and starts at the left-end of the array. The window moves one index to the right at every step.
+
+You need to return an array with the max element inside the window at every step.
+
+Example:
+A: [1, -2, 3, 4, 5, 3, 4, -1]
+k: 3
+Result: [3, 4, 5, 5, 5, 4] */
+
+//Complexity: O(n*k)
+
 var arr = [1, -2, 3, 4, 5, 3, 4, -1];
-var n = 3;
-var result = [];
-for(var i=0; i<=arr.length-n; i++){
-    var temp=0;
-    for(var j=i; j<i+n; j++){
-        if(arr[j]>temp){
-            temp = arr[j];
+var num = 3;
+
+function SlidingWindow(arr, num){
+    var result = []
+    for(var i=0; i<=arr.length-3; i++){
+        var max = 0;
+        for(var j=i; j<i+num; j++){
+            if(arr[j]>max)
+            max = arr[j]
         }
+        result.push(max)
     }
-    result.push(temp);
+    return result;
+}
+console.log(SlidingWindow(arr,num));
+
+//Complexity: O(n)
+var deque = [];
+var result2 = [];
+for(var i=0; i<arr.length; i++){
+    while(deque.length>0 && deque[0]<=i-num){
+        deque.shift();
+    }
+    
+    while(deque.length>0 && arr[deque[deque.length-1]]<=arr[i]){
+        deque.pop();
+    }
+    deque.push(i);
+    if(i>=num-1){
+        result2.push(arr[deque[0]])
+    }
 }
 
-console.log(result)
-   
+console.log(result2)
