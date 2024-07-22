@@ -1,0 +1,39 @@
+//implement queue from stacks
+//stack has: size, isEmpty, top, push, pop
+//queue should have: size front() back() push, pop()
+
+class Stack{
+    constructor(){
+        this.items=[]
+    }
+    size(){
+        console.log(this.items.length)
+    }
+    isEmpty(){
+        if(this.items.length==0)
+        console.log(true);
+        else
+        console.log(false)
+    }
+    top(){
+        console.log(this.items[this.items.length-1])
+    }
+    push(num){
+        this.items.push(num);
+        console.log(this.items)
+    }
+    pop(){
+        this.items.length = this.items.length-1;
+        console.log(this.items)
+    }
+}
+
+const stack1 = new Stack();
+stack1.push(1);
+stack1.push(8);
+stack1.isEmpty()
+stack1.size();
+stack1.top();
+stack1.pop();
+stack1.pop();
+stack1.isEmpty();
