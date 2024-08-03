@@ -1,0 +1,17 @@
+//Given a string s, find the length of the longest substring without repeating characters.
+
+var str = "abcdefabcdbb";
+var max = "";
+var currentmax= "";
+
+
+for(var i=0; i<str.length; i++){
+    if(!currentmax.includes(str[i])){
+        currentmax = currentmax+str[i];
+    }
+    if(currentmax.length>max.length){
+        max = currentmax;
+    }
+}
+
+console.log(max.length);
