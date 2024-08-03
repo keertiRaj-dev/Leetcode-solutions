@@ -1,0 +1,25 @@
+/*Given two strings s1 and s2, find the index of the first occurrence of s2 in s1 as a substring.
+If no such occurence exists, return -1.
+
+This problem is also known as finding needle in a haystack.
+
+Example 1
+s1: “helloworld”
+s2: “low”
+Answer: 3 */
+
+var str1= 'dfgcdcsdhglow';
+var str2= 'low';
+
+for(var i=0; i<str1.length-str2.length+1; i++){
+    var j=i;
+    var temp=""
+    while(j<i+str2.length){
+        temp+=str1[j];
+        j++;
+    }
+   if(temp==str2){
+        console.log(i)
+        break;
+    }
+}
