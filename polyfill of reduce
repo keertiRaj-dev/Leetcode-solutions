@@ -1,0 +1,21 @@
+//reduce
+
+
+var arr = [1,2,3,4,5];
+
+if(!Array.prototype.myreduce){
+    Array.prototype.myreduce = function(callback){
+        if(this==null){
+            throw new TypeError(this + " is null")
+        }
+         if(typeof callback!='function'){
+            throw new TypeError(callback + " is not a function")
+        }
+        var result = this[0]
+for(var i=1; i<this.length; i++){
+   result = callback(result, this[i])
+}
+        return result;
+    }
+}
+console.log(arr.myreduce(((total, current)=> total*current)))
