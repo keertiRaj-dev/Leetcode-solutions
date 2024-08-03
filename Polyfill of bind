@@ -1,0 +1,27 @@
+//Bind
+
+var obj = {
+    first: "keerti",
+    second: "raj",
+    fullname: function(place, age){
+       return (`full name is ${this.first} ${this.second}, I live in ${place}, My age is ${age}`)
+    }
+}
+
+name1 = {
+    first: "anything",
+    second: "lol"
+}
+
+if(!Function.prototype.mybind){
+    Function.prototype.mybind = function(thisArg, ...args){
+     var id = Symbol();
+     thisArg[id] = this;
+    console.log(thisArg);
+    return function(){
+        return thisArg[id](...args)
+    }
+    }
+}
+var result = obj.fullname.mybind(name1, "Noida", 27);
+console.log(result())
