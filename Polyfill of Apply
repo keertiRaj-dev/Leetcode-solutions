@@ -13,8 +13,8 @@ name1 = {
     second: "lol"
 }
 
-if(!Function.prototype.mycall){
-    Function.prototype.mycall = function(thisArg, args){
+if(!Function.prototype.myapply){
+    Function.prototype.myapply = function(thisArg, args){
      var id = Symbol();
      thisArg[id] = this;
     console.log(thisArg);
@@ -23,4 +23,4 @@ if(!Function.prototype.mycall){
     return result;
     }
 }
-console.log(obj.fullname.mycall(name1, ["Noida", 27]))
+console.log(obj.fullname.myapply(name1, ["Noida", 27]))
