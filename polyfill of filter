@@ -1,0 +1,29 @@
+var arr = [1,2,3,4,5];
+function even(num){
+    if(num%2==0){
+        return true;
+    }
+}
+function odd(num){
+   if(num%2!=0){
+        return true;
+    }
+}
+if(!Array.prototype.myfilter){
+    Array.prototype.myfilter = function(callback){
+        var result = [];
+        
+        if(typeof callback != 'function'){
+            throw new Error(callback + " is not a function")
+        }
+        for(var i=0; i<this.length; i++){
+            flag = callback(this[i], i, this);
+            if(flag){
+                result.push(this[i])
+            }
+        }
+        return result;
+    }
+}
+console.log(arr.myfilter(even))
+console.log(arr.myfilter(odd))
