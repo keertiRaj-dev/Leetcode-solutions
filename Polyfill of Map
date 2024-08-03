@@ -1,1 +1,26 @@
+//map
+
+var arr = [1,2,3,4,5];
+function double(num){
+    return num*2;
+}
+function triple(num){
+    return num*3;
+}
+if(!Array.prototype.mymap){
+    Array.prototype.mymap = function(callback){
+        var result = [];
+        
+        if(typeof callback != 'function'){
+            throw new Error(callback + " is not a function")
+        }
+        for(var i=0; i<this.length; i++){
+            result.push(callback(this[i], i, this))
+        }
+        return result;
+    }
+}
+console.log(arr.mymap(double))
+console.log(arr.mymap(triple))
+
 
