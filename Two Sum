@@ -1,4 +1,12 @@
+/* Given an array A and an integer target, find the indices of the two numbers in the array whose sum is equal to the given target.
 
+Note: The problem has exactly one solution. Do not use the same element twice.
+
+Example
+A: [1, 3, 3, 4]
+target: 5
+Answer: [0, 3]
+*/
 var arr = [1, 3, 3, 4,8,8,8,8];
 var target = 6;
 var result = [];
