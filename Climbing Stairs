@@ -1,0 +1,13 @@
+//There is a staircase with n steps. You need to reach the top and you can either climb 1 step or 2 steps at a time.
+
+//In how many distinct ways can you reach the top of the staircase.
+
+function climbStairs(n){
+    var steps = [1,2];
+    for(var i=2; i<=n; i++){
+        steps[i]=steps[i-1]+steps[i-2]
+    }
+    return steps[n-1]
+}
+ 
+ console.log(climbStairs(4))
