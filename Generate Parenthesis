@@ -1,0 +1,23 @@
+
+function  generateParenthesis(n){
+    var result = [];
+    var queue = [{str: '', open: 0, close: 0}]
+    
+    while(queue.length){
+        var {str, open, close} = queue.shift();
+        
+        if(str.length==n*2){
+            result.push(str)
+        }
+        if(open<n){
+            queue.push({str: str+"(", open: open+1, close: close})
+        }
+        if(close<open){
+            queue.push({str: str+')', open:open, close:close+1})
+        }
+    }
+    
+    return result
+}
+
+console.log(generateParenthesis(3))
