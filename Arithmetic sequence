@@ -1,3 +1,7 @@
+/*An Arithmetic progression (AP) or arithmetic sequence is a sequence of numbers such that the difference between the consecutive terms is constant. For instance, the sequence 5, 7, 9, 11, 13, 15, . . . is an arithmetic progression with a common difference of 2.
+
+Given an unsorted array, find if it can be reordered to form an arithmetic sequence.*/
+
 var arr =  [9, 13, 5, 15, 7, 11,17];
 var sorted =[];
 function quicksort(arr){
