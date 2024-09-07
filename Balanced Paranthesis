@@ -1,0 +1,70 @@
+/*Given a string with the just the six characters - ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ‘]’. Determine if the string is balanced.
+A string is balanced if all brackets exist in pairs and are closed in the correct order.
+Example:
+String: ({})[]
+Result: Balanced
+String: {()})(
+Result: Not Balanced
+String: {(})[]
+Result: Not Balanced*/
+
+//My solution:
+var paranthesis = "()"
+
+function balance(paran){
+    var open= ['(', '{', '[']; var close = [')', '}' , ']'] ;
+    var stack = [];
+    for(var i=0; i<paran.length; i++){
+        if(open.includes(paran[i])){
+            stack.push(paran[i])
+        }
+        else{
+            if(stack[stack.length-1]=='(' && paran[i]==')'){
+                stack.pop()
+            }
+            else if(stack[stack.length-1]=='{' && paran[i]=='}'){
+                stack.pop()
+            }
+            else if(stack[stack.length-1]=='[' && paran[i]==']'){
+                stack.pop()
+            }
+            else{
+                return "not balanced"
+            }
+          
+        }
+    }
+    if(stack.length==0){
+        return "balanced"
+    }
+    else{
+        return "not balanced"
+    }
+}
+console.log(balance(paranthesis))
+
+//Optimised solution:
+
+var paranthesis = ")"
+
+function balance(paran){
+var pairs = {
+    '(': ')',
+    '{': '}',
+    '[': ']'
+}
+var stack =[];
+for(var i=0; i<paran.length; i++){
+    if(pairs[paran[i]]){
+        stack.push(paran[i])
+    }
+    else{
+        var lastOpen = stack.pop();
+        if(pairs[lastOpen]!=paran[i]){
+            return "not balanced"
+        }
+    }
+}
+return "balanced"
+}
+console.log(balance(paranthesis))
