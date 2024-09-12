@@ -1,0 +1,61 @@
+/* Given a list of strings A, find the longest common prefix among all the strings.
+
+Example
+A: [“abc”, “abef”, “abccc”, “abftg”]
+
+Longest common prefix: “ab”
+*/
+function common(arr) {
+    if(arr.length==0){
+        return "it's empty array"
+    }
+    if(arr.length==1){
+        return arr[0]
+    }
+    var max = "";
+    for(var i=0; i<arr.length-1; i++){
+        var j=0;
+         var currentmax = ""
+        while(j<arr[i].length && (arr[i][j].toLowerCase()==arr[i+1][j].toLowerCase())){
+            currentmax = currentmax + arr[i][j].toLowerCase();
+            j++;
+    }
+    if(max=="" && currentmax!=""){
+        max = currentmax;
+    }
+    else {
+    if(currentmax.length<=max.length) {
+    var k=0;
+    var newmax = "";
+
+    
+    while(k<currentmax.length && currentmax[k].toLowerCase()==max[k].toLowerCase()){
+        newmax = newmax+currentmax[k].toLowerCase()
+    k++
+    }
+    max = newmax;
+    }
+    }
+    }
+    if(max.length>0){
+    return max}
+    else {return "no common prefix"}
+}
+
+var arr1 = [];
+// Expected output: ""
+var arr2 = ['singleString'];
+// Expected output: "singleString" (since there's only one string)
+var arr3 = ['same', 'same', 'same'];
+// Expected output: "same" (since all strings are identical)
+var arr4 = ['abc', 'def', 'ghi'];
+// Expected output: "" (since there is no common prefix)
+var arr5 = ['Abc', 'abcde', 'abcdef'];
+// Expected output: "abc" (since 'abc' is the common prefix)
+var arr6 = ['short', 'shorter', 'shortest'];
+// Expected output: "short" (since 'short' is the longest common prefix)
+var arr7 = ['prefix123', 'prefix456', 'prefix789'];
+// Expected output: "prefix" (since 'prefix' is the common prefix)
+var arr8 = ['a', 'ab', 'abc'];
+// Expected output: "a" (since 'a' is the common prefix)
+console.log(common(arr8))
