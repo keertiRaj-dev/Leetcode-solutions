@@ -1,0 +1,32 @@
+//Flood fill
+var array = [[1,0,0],
+             [0,0,0],
+             [1,1,1]];
+var index = [1,1];
+var num = 2;
+var length = [2,2]
+
+function flood(array, index, num, length){
+    var left = index[0];
+    var right = index[1]
+    var value = array[left][right];
+    var directions = [[-1,0],[0,1],[1,0],[0,-1]];
+    function fill(left, right){
+      if(left<0 || right<0 || left>=array.length || right>=array.length){
+            return;
+        }
+        if(array[left][right]!=value){
+            return;
+        }
+        array[left][right]=num;
+    for(var i=0; i<directions.length; i++){
+            var leftDiff = directions[i][0];
+            var rightDiff = directions[i][1];
+            fill(left+leftDiff, right+rightDiff )
+    }
+    }
+    fill(left,right)
+    return array;
+}
+
+console.log(flood(array, index, num, length))
