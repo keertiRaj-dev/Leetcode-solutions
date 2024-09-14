@@ -1,0 +1,40 @@
+//matrix rotation by 90 degree
+
+var matrix1 = [[1, 2, 3],
+             [4, 5, 6],
+             [7, 8, 9]];
+var matrix2 = [[1, 2],
+               [3, 4],
+               [5, 6]].   //[ [ 5, 3, 1 ],
+                         //   [ 6, 4, 2 ] ]
+             
+function rotate90(matrix){
+    var rows = matrix.length;
+    var col = matrix[0].length;
+    
+    //reverse it
+    var reversed = []
+    for(var i=0; i<col; i++){
+        reversed[i]=[];
+        for(var j=0; j<rows; j++){
+            reversed[i][j]=matrix[j][i]
+        }
+    }
+    console.log(reversed)
+    
+    //rotate 90 by reversing 
+    for(var i=0; i<reversed.length; i++){
+        var left = 0;
+        var right = reversed[i].length-1
+        while(left<right){
+            var temp=reversed[i][left];
+            reversed[i][left]=reversed[i][right];
+            reversed[i][right]=temp;
+            left++;
+            right--;
+        }
+    }
+    console.log(reversed);
+}
+
+rotate90(matrix2)
