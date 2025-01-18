@@ -1,0 +1,21 @@
+//selection sort
+
+var arr = [2,5,7,1,0,9,-5,55];
+var arr2 = [3, 5, 2, 1, 4];
+
+function selection(arr){
+
+for(var i=0; i<arr.length-1; i++){
+    var min = i;
+    for(var j=i+1; j<arr.length; j++) {
+    if(arr[min]>arr[j]){
+       min = j;
+    }
+    }
+    var temp = arr[i];
+    arr[i]=arr[min];
+    arr[min]=temp
+}
+return arr;
+}
+console.log(selection(arr))
