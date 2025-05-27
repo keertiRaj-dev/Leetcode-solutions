@@ -1,0 +1,20 @@
+//in result array, write multiplication of next two elements
+
+function circle(arr) {
+  const n = arr.length;
+  if (n === 0) return [];
+
+  const result = [];
+  for (let i = 0; i < n; i++) {
+    const first = arr[(i + 1) % n];
+    const second = arr[(i + 2) % n];
+    result.push(first * second);
+  }
+  return result;
+}
+
+console.log(circle([1, 2, 3, 4])); // [6, 12, 4, 2]
+console.log(circle([3, 4, 5]));    // [20, 15, 12]
+console.log(circle([5, 10, 15]));  // [150, 75, 50]
+console.log(circle([7, 8]));       // [56, 56]
+console.log(circle([2]));          // [4]
