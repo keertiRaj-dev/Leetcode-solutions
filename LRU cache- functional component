@@ -1,0 +1,51 @@
+//LRU Cache
+
+function createCache(capacity){
+    let cache = new Map();
+    
+    function get(key){
+        if(!cache.has(key))
+        return -1;
+        
+        const value = cache.get(key);
+        cache.delete(key);
+        cache.set(key, value);
+        return value;
+    }
+    
+    function put(key, value){
+        if(cache.has(key)){
+        cache.delete(key);
+        }
+        cache.set(key, value);
+        if(cache.size>capacity){
+            const firstKey = cache.keys().next().value;
+            cache.delete(firstKey)
+            }
+    }
+    
+    function print(){
+        console.log(cache);
+    }
+    
+    return {get, put, print}
+}
+
+const cache = createCache(6);
+cache.put(1, "keerti");
+cache.put(2, "Raj");
+cache.put(3, "haha");
+cache.get(2);
+cache.get(3);
+cache.put(4, "none");
+cache.put(5, "every");
+cache.get(3);
+cache.get(2);
+cache.get(1);
+cache.get(2);
+cache.get(1);
+cache.put(6, "secondlast");
+cache.put(7, "last")
+cache.print()
+
+
