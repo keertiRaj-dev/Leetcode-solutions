@@ -1,0 +1,22 @@
+/*Q1 Given an array of integers speeds represents the speeds of car in a racing contest, return an array answer such that answer[i] is the distance to the next faster car. If there are no faster cars keep answer[i] == 0 instead.
+    Input: speeds = [73,74,75,71,69,72,76,73]
+    Output: [1,1,4,2,1,1,0,0]*/
+    
+    var speeds = [73,74,75,71,69,72,76,73];
+    function distance(arr){
+        var dist = [];
+        for(var i=0; i<arr.length; i++){
+            var current = arr[i];
+            var j=i+1
+            while(arr[j]<=arr[i] && j<arr.length){
+                j++;
+            }  if(j<arr.length)
+                dist.push(j-i);
+                else
+                 dist.push(0)
+        }
+        return dist
+    }
+    
+console.log(distance(speeds))    
+    
