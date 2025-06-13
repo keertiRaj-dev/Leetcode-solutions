@@ -3,7 +3,7 @@
 var str1 = 'eefarth';
 var str2 = 'heeeart';
 
-
+//normal solution
 function anagram(str1, str2){
     var set1 = {};
 var set2 = {};
@@ -36,4 +36,27 @@ else{
 }
 
 console.log(anagram(str1, str2))
+
+//optimised solution
+
+function anagram2(str1, str2) {
+    if (str1.length !== str2.length) return "not anagram";
+    if (str1.length === 0) return "empty strings";
+
+    const freq = {};
+
+    for (let i = 0; i < str1.length; i++) {
+        freq[str1[i]] = (freq[str1[i]] || 0) + 1;
+        freq[str2[i]] = (freq[str2[i]] || 0) - 1;
+    }
+
+    for (let key in freq) {
+        if (freq[key] !== 0) return "not anagram";
+    }
+
+    return "anagram";
+}
+
+console.log(anagram2(str1, str2))
+
  
