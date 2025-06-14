@@ -20,3 +20,29 @@
     
 console.log(distance(speeds))    
     
+//Optimised solution:
+
+/*Q1 Given an array of integers speeds represents the speeds of car in a racing contest, return an array answer such that answer[i] is the distance to the next faster car. If there are no faster cars keep answer[i] == 0 instead.
+    Input: speeds = [73,74,75,71,69,72,76,73];
+    Output: [1,1,4,2,1,1,0,0]*/
+    
+   const arr = [73, 1];
+   function nextFast(arr){
+       if(arr.length<2){
+           return "Nothing to compare. Give atleast 2 cars"
+       }
+       else{
+           var result = new Array(arr.length).fill(0);
+           var stack =[];
+           for(var i=0; i<arr.length; i++){
+               while(stack.length && arr[i]>arr[stack[stack.length-1]]){
+                   const prevInd = stack.pop();
+                   const diff = i-prevInd;
+                   result[prevInd]=diff;
+               }
+               stack.push(i);
+           }
+       }
+       return result
+   } 
+   console.log(nextFast(arr))
