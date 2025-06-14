@@ -45,26 +45,31 @@ console.log(balance(paranthesis))
 
 //Optimised solution:
 
-var paranthesis = ")"
+const str1 = "({keerti})[]";
+const str2 = "{()})( ";
 
-function balance(paran){
-var pairs = {
-    '(': ')',
-    '{': '}',
-    '[': ']'
-}
-var stack =[];
-for(var i=0; i<paran.length; i++){
-    if(pairs[paran[i]]){
-        stack.push(paran[i])
+const balanced=(str)=>{
+    const stack=[];
+    const map = {
+        "}" : "{",
+        ")" : "(",
+        "]" : "[",
+        ">" : "<"
     }
-    else{
-        var lastOpen = stack.pop();
-        if(pairs[lastOpen]!=paran[i]){
-            return "not balanced"
-        }
-    }
+    const closing = Object.keys(map);
+    const opening = Object.values(map);
+ 
+   for(char of str){
+       console.log(char)
+       if(opening.includes(char)){
+           stack.push(char)
+       }
+       else if(closing.includes(char)){
+           if(stack.pop() != map[char]){
+           return "not balanced"}
+       }
+   }
+   return "balanced"
 }
-return "balanced"
-}
-console.log(balance(paranthesis))
+
+console.log(balanced(str1));
