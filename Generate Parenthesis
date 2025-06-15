@@ -1,4 +1,7 @@
-
+/* Given n pairs of parentheses, write a function to generate all combinations of well-formed (i.e., valid) parentheses.
+Input: n = 3
+Output: ["((()))","(()())","(())()","()(())","()()()"]
+*/
 function  generateParenthesis(n){
     var result = [];
     var queue = [{str: '', open: 0, close: 0}]
@@ -16,8 +19,6 @@ function  generateParenthesis(n){
             queue.push({str: str+')', open:open, close:close+1})
         }
     }
-    
     return result
 }
-
 console.log(generateParenthesis(3))
