@@ -30,3 +30,36 @@ function flood(array, index, num, length){
 }
 
 console.log(flood(array, index, num, length))
+
+
+//optimised solution
+
+const image =[[1,1,1],[1,1,0],[1,0,1]];
+const target = [1, 1];
+const color = 2;
+const length = [2,2]
+function flood(image, target, color){
+    const row = target[0];
+    const col = target[1];
+    const originalColor = image[row][col];
+    if(originalColor == color) {
+        return image;
+    }
+    
+    function fill(r, c){
+        if(r<0 || r>length[0] || c<0 || c>length[1] || originalColor!=image[r][c]){
+            return;
+        }
+        image[r][c]=color;
+        fill(r-1, c);
+        fill(r+1, c);
+        fill(r, c-1);
+        fill(r, c+1)
+    }
+    fill(row, col);
+    return image;
+};
+
+console.log(flood(image, target, color))
+
+
