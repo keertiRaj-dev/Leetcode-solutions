@@ -1,4 +1,4 @@
-//max consecutive Ones
+//Given an array of integers, find the maximum number of consecutive 1s.
 
 var arr = [1, 1,1,1,1, 3, 2, 3, 1, 1, 1,1];
 
