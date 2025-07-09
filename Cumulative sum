@@ -1,4 +1,4 @@
-//Cumulative Sum
+//Given an array of integers, return a new array where each element at index i is the sum of elements from index 0 to i in the original array.
 
 var arr = [1,2,3,4,5,6];
 var result = [arr[0]];
