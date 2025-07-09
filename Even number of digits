@@ -1,4 +1,4 @@
-//even number of digits
+//Given an array of integers, return how many of them contain an even number of digits.
 
 var arr= [42, 564, 5775, 34, 123, 454, 1, 5, 45, 3556, 23442];
 var even = 0;
