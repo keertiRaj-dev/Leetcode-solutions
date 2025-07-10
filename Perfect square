@@ -1,6 +1,4 @@
-//Complexity O(n)
-
-what's the time complexity of this code
+//Given a number n, return "yes" if it's a perfect square by checking all integers from 1 to n. Otherwise, return "no".
 
 var n1 = 25;
 var n2 = 30;
