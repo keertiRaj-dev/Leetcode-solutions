@@ -1,28 +1,22 @@
 //Given a number n, return "yes" if it's a perfect square by checking all integers from 1 to n. Otherwise, return "no".
 
-var n1 = 25;
-var n2 = 30;
+//my solution 
+var num = 9;
+function square(num){
+  for(var i=1; i<=num; i++){
+      if(num/i == i){
+          return "true"
+      }
+  }
+    return "false"
+}
+console.log(square(num));
 
-function square(n){
-    var flag=0;
-    var i=0;
-    while(i<=n){
-    
-   if(n%i==0 && i*i==n){
-                flag++;
-              
-        }
-          i++;
-    }
-    
-    if(flag==0){
-        return "no"
-    }
-    else{
-        return "yes"
-    }
-    
+//more optimized solution
+function square(num) {
+  for (let i = 1; i * i <= num; i++) {
+    if (i * i === num) return "true";
+  }
+  return "false";
 }
 
-console.log(square(n1));
-console.log(square(n2));
