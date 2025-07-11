@@ -1,0 +1,17 @@
+2. Process Domain Operations
+Write a function processDomainOperations(operations) that handles these commands:
+"PUT domain ip" → store domain with IP
+"GET domain" → return IP or "404"
+"COUNT suffix" → return count of stored domains ending with suffix
+Return results only for GET and COUNT in order.
+Input:
+[
+  ["PUT", "www.apple.com", "10.20.30.40"],
+  ["PUT", "jobs.apple.com", "10.20.30.50"],
+  ["PUT", "sites.google.com", "142.258.145.693"],
+  ["GET", "sample.com"],
+  ["GET", "www.apple.com"],
+  ["COUNT", "apple.com"],
+  ["COUNT", "com"]
+]
+Output: ["404", "10.20.30.40", "2", "3"]
