@@ -1,0 +1,30 @@
+📝 Problem Statement:
+You are given an array a of size n, where every element is a positive multiple of 9.
+
+You have to process q queries.
+Each query consists of two integers l and r (0-based indices).
+
+For each query, perform the following two tasks:
+
+1. Range Sum
+Output the sum of elements from index l to r (inclusive).
+
+2. Digit Reduction
+For each element in the range [l, r], replace it with the sum of its digits.
+Example: if a[i] = 729, it becomes 7+2+9 = 18.
+
+🔧 Function Signature:
+js
+Copy
+Edit
+function solve(n, q, a, queries): number[]
+n: number of elements in array
+
+q: number of queries
+
+a: array of n positive integers (each divisible by 9)
+
+queries: array of q queries, each query = [l, r]
+
+📤 Output:
+Return an array of q integers — each is the sum before digit reduction for that query.
