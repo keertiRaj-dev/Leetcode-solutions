@@ -1,0 +1,51 @@
+Problem Statement:
+You're given an array A of size n.
+
+Alice picks any number Ai from the array.
+Bob wins if he can find another number Aj such that:
+
+Aj ≤ Ai, and
+
+Ai / Aj (integer division) is not present in the array
+
+You need to check if Bob can win for any choice of Ai.
+If yes, return "Yes"
+Else, return "No"
+
+Function Signature:
+js
+Copy
+Edit
+function solveOne(n, A): string
+Example:
+Input:
+ini
+Copy
+Edit
+n = 5  
+A = [3, 6, 2, 4, 1]
+Output:
+yaml
+Copy
+Edit
+Yes
+Explanation:
+Pick Ai = 6, Aj = 4
+
+6 / 4 = 1.5 → floor = 1
+
+1 is present → valid? Yes
+
+Try Aj = 2 → 6 / 2 = 3 → 3 is present → try again
+
+Try Aj = 3 → 6 / 3 = 2 → 2 is present
+
+Now pick Aj = 6 itself → 6 / 6 = 1 → 1 is in A
+
+But if at any point, Ai / Aj is not in A → Bob wins
+(e.g., if A = [3, 6, 2] and 6 / 2 = 3, fine, but 6 / 4 = 1.5 → 1 — if 1 not in A → Bob wins)
+
+✅ Output:
+Return "Yes" if Bob has any winning move, else "No".
+
+Let me know if you want full test cases.
