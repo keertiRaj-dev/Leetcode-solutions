@@ -1,0 +1,4 @@
+1. Flatten an object (which may contain nested objects or arrays) into a list of key paths.
+const input = { a: { b: { c: 1 }, d: 2 }, e: 3 };
+console.log(fetchKeys(input));
+["a.b.c", "a.d", "e"]
