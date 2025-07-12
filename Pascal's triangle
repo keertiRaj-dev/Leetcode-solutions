@@ -1,20 +1,24 @@
 //Pascal's triangle
 
-var n = 5;
-var result =[];
+function triangle(num){
+    var result = [];
 
-
-function pascal(n){
-    if(n==1){
-        return [1];
+function pascal(num){
+    if(num==1) return [1];
+    var previous = pascal(num-1);
+    var current = [1];
+    for(var i=1; i<num-1; i++){
+        current.push(previous[i-1]+previous[i])
     }
-var previous = pascal(n-1);
-var current=[1];
-for(var i=1; i<n-1; i++){
-    current.push(previous[i-1]+previous[i]);
+    current.push(1);
+    return current
 }
-current.push(1);
-return current;
 
+for(var i=1; i<=num; i++){
+    result.push(pascal(i))
 }
-console.log(pascal(n));
+
+return result;
+}
+
+console.log(triangle(10))
