@@ -1,0 +1,22 @@
+var arr = [1, [2, [3, [4]], 5]];
+
+function flat(arr){
+    var result = [];
+    function recurse(arr){
+    for(var i=0; i<arr.length; i++){
+     if(Array.isArray(arr[i])){
+         console.log(arr[i])
+         recurse(arr[i]);
+     }
+     else{
+         console.log("else")
+         result.push(arr[i])
+     }
+    }
+    }
+    recurse(arr)
+
+return result;
+}
+
+console.log(flat(arr))
