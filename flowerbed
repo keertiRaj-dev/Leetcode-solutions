@@ -1,0 +1,115 @@
+Question Statement:
+
+You have a long flowerbed in which some of the plots are planted, and some are not. However,
+flowers cannot be planted in adjacent plots. Given an integer array flowerbed containing 0's and
+1's, where 0 means empty and 1 means not empty, and an integer n, return if n new flowers can
+be planted in the flowerbed without violating the no-adjacent-flowers rule.
+Example 1:
+Input: flowerbed = [1,0,0,0,1], n = 1
+Output: true
+Example 2:
+Input: flowerbed = [1,0,0,0,1], n = 2
+Output: false
+Part 2
+What if the flowerbed is of size, i*j (i rows and j columns) and the flowers
+cannot be planted adjacent to each other in a perpendicular manner (The
+rook moves in a chess board, shown in the given figure). Find out
+whether it is possible to plant “n” number of flowers in the given flower
+bed.
+Example 1:
+Input: flowerbed = [[1,0,1],
+[0,0,0],
+[1,0,1]]
+n = 1
+Output = true
+Example 2:
+Input: flowerbed = [[1,0,1,0],
+[0,0,0,0],
+[1,0,1,0],
+[0,1,0,0]]
+N = 4
+Output = false
+
+
+
+
+Solution:
+
+//input value of flowerbed
+var flowerbed = 
+[[1,0,1,0],
+[0,0,0,0],
+[1,0,1,0],
+[0,1,0,0]];
+//input value of result
+var n = 3;
+//let's start counting the number of such spots which are not surrounded by other plants
+var flag = 0;
+//loop starts for the matrics where i is for rows and j is for column
+for(var i=0; i<flowerbed.length; i++) {
+    for(var j=0; j<flowerbed[i].length; j++) {
+        //condition that applies only for the elements which are 0 only
+        if(flowerbed[i][j]==0) {
+
+        //for checking the for 1st corner spot
+        if(i==0 && j==0){
+            //we are checking whether its next spot is vacant as well as its below spot is vacant
+            if(flowerbed[i+1][j]==0 && flowerbed[i][j+1]==0){
+            flag++;
+            }
+        }
+        //for 1st row except corners
+        if(i==0 && j!=0 && j!=flowerbed[0].length-1)
+        //we are checking it's left, right and below spots
+            if(flowerbed[i][j-1]==0 && flowerbed[i][j+1]==0 && flowerbed[i-1][j]==0){
+            flag++;
+        }
+        //for 2nd corner
+        if(i==0 && j==flowerbed[0].length-1){
+            //we are checking its left and below spots
+              if(flowerbed[i+1][j]==0 && flowerbed[i][j-1]==0)
+            flag++;
+        }
+        //for 1st column except corners
+        if(j==0 && i!=0 && i!=flowerbed.length-1){
+            //we are checking its above, below and right spots
+        if(flowerbed[i-1][j]==0 && flowerbed[i+1][j]==0 && flowerbed[i][j+1]==0)
+        flag++;
+        }
+        //for last column except corners
+        if(j==flowerbed[0].length-1 && i!=0 && i!=flowerbed.length-1){
+            //we are checking its left, above and below spots
+        if(flowerbed[i-1][j]==0 && flowerbed[i+1][j]==0 && flowerbed[i][j-1]==0)
+        flag++;
+        }
+        //for 3rd corner
+         if(i==flowerbed.length-1 && j==0){
+             //we are checking its above and right spots
+            if(flowerbed[i-1][j]==0 && flowerbed[i][j+1]==0)
+            flag++;
+        }
+        //for 4th corner
+          if(i==flowerbed.length-1 && j==flowerbed[0].length-1){
+              //we are checking its left and above spots
+              if(flowerbed[i-1][j]==0 && flowerbed[i][j-1]==0)
+            flag++;
+        }
+        //for last row without corners
+        if(i==flowerbed.length-1 && j!=0 && j!=flowerbed[0].length-1){
+            //we are checking its above, left and right spots
+            if(flowerbed[i-1][j]==0 && flowerbed[i][j+1]==0 && flowerbed[i][j-1]==0)
+            flag++;
+        }
+        //for other elements
+        if(i!=0 && i!=flowerbed.length-1 && j!=0 && j!=flowerbed[0].length-1){
+            //we are checking all spots adjacent to it
+        if(flowerbed[i-1][j]==0 && flowerbed[i+1][j]==0 && flowerbed[i][j-1]==0 && flowerbed[i][j+1]==0)
+        flag++;
+        }
+        }
+    }}
+        if(flag==n)
+            console.log("true")
+        
+        else
+        console.log("false");
