@@ -1,0 +1,28 @@
+// input: 'k1e3d5a11'
+//output should print a string with 1 time k. then 3 times 3 then 5 times d and 11 times a
+
+var str = 'k10e3'
+
+function print(str){
+     if(!isNaN(str[0]) || str.length<2){
+        return "wrong input"
+    }
+var i=0
+var result = ''
+while(i<str.length){
+    var alpha = str[i];
+    var j=i+1;
+    var num = 0;
+    while(j<str.length && !isNaN(str[j])){
+        num = num*10 + parseInt(str[j]);
+        j++;
+    }
+    for(var k=0; k<num; k++){
+        result += str[i]
+    }
+    i=j;
+}
+return result
+}
+console.log(print(str))
+
