@@ -1,0 +1,21 @@
+//without creating new array
+
+var arr = [0,0,0,1,1,1,2,2,3,3,4,5,6,6,7]
+
+function duplicate(arr){
+    var curr = arr[0];
+    var toSwap=1;
+    var i=1;
+    while(i<arr.length){
+        if(arr[i]!=curr){
+            arr[toSwap] = arr[i];
+            curr = arr[i]
+            toSwap++;
+        }
+              i++;
+    }
+    arr.length = toSwap;
+    return arr
+}
+
+console.log(duplicate(arr))
