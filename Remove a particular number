@@ -1,0 +1,20 @@
+Remove a particular number from array without creating new array
+
+var arr = [3,2,4,5,2,3,4,3,3]
+
+function remove(arr, num){
+    var toShift = 0;
+    var i=0;
+    while(i<arr.length){
+        if(arr[i]==num){
+         toShift++;
+        }
+        else{
+            arr[i-toShift]=arr[i]
+        }
+              i++;
+    }
+    arr.length = arr.length-toShift
+    return arr
+}
+console.log(remove(arr, 3))
