@@ -3,19 +3,16 @@
 var arr = [0,0,0,1,1,1,2,2,3,3,4,5,6,6,7]
 
 function duplicate(arr){
-    var curr = arr[0];
-    var toSwap=1;
-    var i=1;
+    var curr = 0;
+    var i=0;
     while(i<arr.length){
-        if(arr[i]!=curr){
-            arr[toSwap] = arr[i];
-            curr = arr[i]
-            toSwap++;
+        if(arr[i]>arr[curr]){
+            curr = curr+1;
+            arr[curr] = arr[i];
         }
               i++;
     }
-    arr.length = toSwap;
+    arr.length = curr+1;
     return arr
 }
-
 console.log(duplicate(arr))
